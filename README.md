@@ -9,12 +9,15 @@
 
 **MATERIA:** Nuevas Técnicas de Programación
 
-**DOCENTE:** Ing. Susana Masapanta
+**DOCENTE:** *Ing. Susana Masapanta*
 
-**INTEGRANTES:** Nicole Amaguaña
+**INTEGRANTES:** 
 
+
+                Nicole Amaguaña
+                
                 Valeria De la Torre
-
+           
                 Marcelo Echeverría
 
                 Gonzalo Navarrete

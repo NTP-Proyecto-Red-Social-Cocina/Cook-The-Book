@@ -3,9 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Usuario;
 class usuarioController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +18,8 @@ class usuarioController extends Controller
      */
     public function index()
     {
-        //
+        $usuarios = Usuario::all();
+        return view('Usuario.Retrive',compact('usuarios'));
     }
 
     /**
@@ -23,7 +29,7 @@ class usuarioController extends Controller
      */
     public function create()
     {
-        //
+        return view('Usuario.Create');
     }
 
     /**
@@ -34,7 +40,14 @@ class usuarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+    $usuario = new Usuario();
+    $usuario->usuario_id = $request->usuario_id;
+    $usuario->usuario_password = $request->usuario_password;
+    $usuario->usuario_correo = $request->usuario_correo;
+    $usuario->usuario_nombre = $request->usuario_nombre;
+    $usuario->save();
+
+    return back()->with('carga', 'Usuario Agregado');
     }
 
     /**
@@ -45,7 +58,7 @@ class usuarioController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -56,7 +69,8 @@ class usuarioController extends Controller
      */
     public function edit($id)
     {
-        //
+        $usuario = Usuario::findOrFail($id);
+        return view('Usuario.Update',compact('usuario'));
     }
 
     /**
@@ -68,7 +82,13 @@ class usuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+    $notaActualizada = Usuario::find($id);
+    $usuario->usuario_id = $request->usuario_id;
+    $usuario->usuario_password = $request->usuario_password;
+    $usuario->usuario_correo = $request->usuario_correo;
+    $usuario->usuario_nombre = $request->usuario_nombre;
+    $usuario->save();
+    return back()->with('updt', 'Usuario Agregado'); 
     }
 
     /**
@@ -79,6 +99,9 @@ class usuarioController extends Controller
      */
     public function destroy($id)
     {
-        //
+    $usuario= Usuario::findOrFail($id);
+    $usuario->delete();
+
+    return back()->with('mensaje', 'Usuario Eliminado');
     }
 }

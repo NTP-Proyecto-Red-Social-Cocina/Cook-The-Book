@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/sms', function () {
+    return view('mensajes');
+});
 
 Route::get('/', function () {
     return view('welcome');

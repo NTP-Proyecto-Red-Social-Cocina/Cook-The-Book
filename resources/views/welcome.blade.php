@@ -4,11 +4,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Cook The Book</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <!-- Styles -->
         <style>
             html, body {
@@ -68,7 +68,7 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        
+                        <a href="{{ url('/home') }}">Status(desloguear)</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
@@ -78,9 +78,10 @@
                     @endauth
                 </div>
             @endif
-
+        
             <div class="content">
                 <a href="/usuario" class="btn btn-warning btn-sm">CRUD USUARIO</a>
+                <a href="/usuario/create" class="btn btn-warning btn-sm">+</a>
             </div>
         </div>
     </body>

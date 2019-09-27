@@ -13,18 +13,11 @@
                   @if ( session('updt') )
                     <div class="alert alert-success">{{ session('updt') }}</div>
                   @endif
-                  <form method="POST" action="/usuario">
+                  <form   action="{{ route('usuario.update', $usuario->usuario_id) }}" method="POST">
                   @method('PUT')
-                    @csrf
-                   
-                    <h4>id del Usuario</h4>
-                    <input
-                      type="text"
-                      name="usuario_id"
-                      placeholder="id del Usuario"
-                      class="form-control mb-2"
-                      value = "{{$usuario->usuario_id}}"
-                    />
+                  @csrf
+
+                    <h2 class="d-flex justify-content-between align-items-center"> usuario: {{$usuario->usuario_id}}</h2>                 
                     <h4>Contraseña</h4>
                     <input
                       type="text"

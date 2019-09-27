@@ -18,12 +18,12 @@ class tipo_usuario extends Model
 
       public function administrador()
     {
-        return $this->hasOne('App\administrador');
+        return $this->hasOne('App\administrador','administrador_id');
     }
 
          public function usuarioNormal()
     {
-        return $this->hasOne('App\usuarioNormal');
+        return $this->hasOne('App\usuarioNormal','un_nick_name');
     }
 
 }

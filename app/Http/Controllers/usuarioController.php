@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Usuario;
+use DB;
 class usuarioController extends Controller
 {
 
@@ -82,13 +83,12 @@ class usuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-    $notaActualizada = Usuario::find($id);
-    $usuario->usuario_id = $request->usuario_id;
+    $usuario = Usuario::findOrFail($id);
     $usuario->usuario_password = $request->usuario_password;
     $usuario->usuario_correo = $request->usuario_correo;
     $usuario->usuario_nombre = $request->usuario_nombre;
     $usuario->save();
-    return back()->with('updt', 'Usuario Agregado'); 
+    return back()->with('updt', 'Usuario Actualizado'); 
     }
 
     /**

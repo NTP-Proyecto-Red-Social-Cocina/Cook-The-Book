@@ -13,7 +13,7 @@
                   @if ( session('carga') )
                     <div class="alert alert-success">{{ session('carga') }}</div>
                   @endif
-                  <form method="POST" action="/usuarios">
+                  <form method="POST" action="/usuario">
                     @csrf
                     <input
                       type="text"

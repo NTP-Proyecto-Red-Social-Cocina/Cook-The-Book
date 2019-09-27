@@ -18,6 +18,6 @@ class usuarioNormal extends Model
 
       public function perfil()
     {
-        return $this->hasOne('App\perfil');
+        return $this->hasOne('App\perfil','un_nick_name');
     }
 }
